@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  </head>
+  <body>
+<section class="body-form">
+    <div class="titre-form">
+      <h1>COMMANDER</h1>
+    </div>
+    <div class="separator3"></div>
+    <section class="cmd-container">
+     <div class="center-container">
+      <div class="h2-cmd"> <h2>Votre commande</h2> </div>
+      <div class="image-section">
+        <!-- quantity 1 -->
+        <div>
+          <img src="https://i.ibb.co/wzg50np/fraise.png" alt="fraise"> <h3 class="img-txt">FRAISE</h3> 
+          <div class="quantity-controls">
+            <div class="btn-container">    
+            <div class="cmd-input">
+              <input type="text" id="qty1" value="0" readonly /> 
+            </div>
+            <div class="btn-quantity">
+                        <button class="button2" onclick="changeQuantity('qty1', 1)">+</button>
+                        <button class="button1" onclick="changeQuantity('qty1', -1)">-</button>
+      </div>
+          </div> 
+            <div class="btn-submit">
+          <button onclick="validateQuantity('qty1')">OK</button>
+          </div>
+        </div>
+        </div>
+        <!-- quantity 2 -->
+        <div>
+          <img src="https://i.ibb.co/9WVzZLR/pamplemousse.png" alt="pamplemousse"> <h3 class="img-txt2">PAMPLE <br> MOUSSE</h3>
+          <div class="quantity-controls">
+            <div class="btn-container">    
+            <div class="cmd-input">
+              <input type="text" id="qty2" value="0" readonly /> 
+            </div>
+            <div class="btn-quantity">
+                        <button class="button2" onclick="changeQuantity('qty2', 1)">+</button>
+                        <button class="button1" onclick="changeQuantity('qty2', -1)">-</button>
+          </div>
+          </div> 
+            <div class="btn-submit">
+          <button onclick="validateQuantity('qty1')">OK</button>
+          </div>
+        </div>
+        </div>
+        <!-- quantity 3 -->
+        <div>
+          <img src="https://i.ibb.co/L6jbY8b/framboise.png" alt="framboise"> <h3 class="img-txt3">FRAM<br>BOISE</h3>
+          <div class="quantity-controls">
+            <div class="btn-container">    
+            <div class="cmd-input">
+              <input type="text" id="qty3" value="0" readonly /> 
+            </div>
+            <div class="btn-quantity">
+                        <button class="button2" onclick="changeQuantity('qty3', 1)">+</button>
+                        <button class="button1" onclick="changeQuantity('qty3', -1)">-</button>
+      </div>
+          </div> 
+            <div class="btn-submit">
+          <button onclick="validateQuantity('qty1')">OK</button>
+          </div>
+        </div>
+        </div>
+        <!-- quantity 4 -->
+        <div>
+          <img src="https://i.ibb.co/yQfmy4V/citron.png" alt="citron"/>
+          <h3 class="img-txt4">CITRON</h3>
+          <div class="quantity-controls">
+            <div class="btn-container">    
+            <div class="cmd-input">
+              <input type="text" id="qty4" value="0" readonly /> 
+            </div>
+            <div class="btn-quantity">
+                        <button class="button2" onclick="changeQuantity('qty4', 1)">+</button>
+                        <button class="button1" onclick="changeQuantity('qty4', -1)">-</button>
+      </div>
+          </div> 
+            <div class="btn-submit">
+          <button onclick="validateQuantity('qty1')">OK</button>
+          </div>
+        </div>
+        </div>
+      </div>
+     </div>
+    </section>
+   
+    <section class="container">
+      <div class="separator2"></div>
+      <form action="#" method="post">
+       <div class="form-row">
+        <div class="form-column">
+        <div class="left-column">
+           <h2>Vos informations</h2>
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" name="nom" required />
+
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="prenom" required />
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="right-column">
+          <h2>Livraison</h2>
+          <label for="adresse">Adresse de livraison:</label>
+          <input type="text" id="adresse" name="adresse" required />
+
+          <label for="code_postal">Code postal:</label>
+          <input type="text" id="code_postal" name="code_postal" required />
+
+          <label for="ville">Ville:</label>
+          <input type="text" id="ville" name="ville" required />
+        </div>
+      </div>
+        <div class="submit-container">
+          <button type="submit">Commander</button>
+</div>
+      </div>
+      </form>
+    </section>
+    </section>
+  </body>
+</html>
