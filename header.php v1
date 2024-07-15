@@ -1,0 +1,94 @@
+<?php
+/**
+ * The template for displaying the header
+ *
+ * This is the template that displays all of the <head> section, opens the <body> tag and adds the site's header.
+ *
+ * @package HelloElementor
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+$viewport_content = apply_filters( 'hello_elementor_viewport_content', 'width=device-width, initial-scale=1' );
+$enable_skip_link = apply_filters( 'hello_elementor_enable_skip_link', true );
+$skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
+
+// Check if user is logged in and has admin role
+$user = wp_get_current_user();
+$is_admin = in_array( 'administrator', (array) $user->roles );
+
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="<?php echo esc_attr( $viewport_content ); ?>">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+
+<?php wp_body_open(); ?>
+
+<?php if ( $enable_skip_link ) { ?>
+<a class="skip-link screen-reader-text" href="<?php echo esc_url( $skip_link_url ); ?>"><?php echo esc_html__( 'Skip to content', 'hello-elementor' ); ?></a>
+<?php } ?>
+
+<header id="masthead" class="site-header">
+    <!-- Desktop Header -->
+    <section class="container-header desktop-header">
+        <div>
+            <a href="<?php echo home_url(); ?>">
+                <img class="img-header" src="https://i.ibb.co/d5J88H3/logo-header.png" alt="logo-header">
+            </a>
+        </div>
+        <div class="btn-header">
+            <a class="btn-nr" href="<?php echo home_url('/nous-rencontrer/'); ?>">nous rencontrer</a>
+            <?php if ( is_user_logged_in() && $is_admin ) : ?>
+                <a class="btn-nr" href="<?php echo home_url(); ?>">Admin</a>
+            <?php endif; ?>
+            <a class="cmd-btn" href="<?php echo home_url('/commander/'); ?>">Commander</a>
+        </div>
+    </section>
+
+    <!-- Mobile Header -->
+    <section class="container-header mobile-header">
+      <div class="logo">
+        <img src="https://i.ibb.co/d5J88H3/logo-header.png" alt="Logo" />
+      </div>
+      <div class="hamburger-menu">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="<?php echo home_url('/nous-rencontrer/'); ?>">Nous rencontrer</a>
+          </li>
+          <?php if ( is_user_logged_in() && $is_admin ) : ?>
+              <li><a href="<?php echo admin_url(); ?>">Admin</a></li>
+          <?php endif; ?>
+          <li><a href="<?php echo home_url('/commander/'); ?>">Commander</a></li>
+        </ul>
+      </nav>
+    </div>
+    </section>
+</header>
+
+<?php
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
+	if ( hello_elementor_display_header_footer() ) {
+		if ( did_action( 'elementor/loaded' ) && hello_header_footer_experiment_active() ) {
+			get_template_part( 'template-parts/dynamic-header' );
+		} else {
+			get_template_part( 'template-parts/header' );
+		}
+	}
+}
+?>
+
+<?php wp_footer(); ?>
+</body>
+</html>
