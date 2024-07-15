@@ -1,0 +1,165 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: white;
+}
+
+/* Desktop Header Styles */
+.container-header.desktop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.img-header {
+  width: 400px;
+}
+
+.btn-header {
+  display: flex;
+  gap: 50px;
+}
+
+.cmd-btn {
+  background-color: #dc9f96;
+  color: white;
+  margin-left: auto;
+  padding: 30px 40px;
+}
+
+.cmd-btn:hover {
+  background-color: #c02e44;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.btn-nr {
+  color: black;
+  font-weight: 500;
+  align-content: center;
+  border-left: solid transparent 13px;
+}
+
+.btn-nr:hover {
+  font-weight: bold;
+  border-left: solid transparent 5px;
+}
+
+/* Mobile Header Styles */
+.container-header.mobile-header {
+  display: none; /* Hidden by default */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent; /* Retire le fond noir */
+  color: black;
+}
+
+.logo img {
+  width: 50vw; /* Augmente la taille du logo */
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none; /* Cacher le label par défaut */
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.nav-menu {
+  display: none; /* Masquer par défaut */
+  position: absolute;
+  top: 100%; /* Position sous le header */
+  right: 0;
+  background-color: #333;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  padding: 10px 0;
+}
+
+.nav-menu ul li a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s;
+  border-right: solid transparent 10px;
+  margin-right: 20px;
+}
+
+.nav-menu ul li a:hover {
+  font-weight: bold;
+  border-right: solid transparent 2px;
+}
+
+/* Affichage du menu sur le label "menu-icon" lorsqu'on coche l'input checkbox */
+.menu-toggle:checked ~ .nav-menu {
+  display: block;
+}
+
+.menu-toggle:checked ~ .menu-icon {
+  display: block;
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 830px) {
+  .container-header.desktop-header {
+    display: none; /* Hide desktop header */
+  }
+  .container-header.mobile-header {
+    display: flex;
+    flex-direction: row; /* Show mobile header */
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 auto auto;
+  }
+
+  .nav-menu {
+    position: static;
+    display: none;
+    width: auto;
+    background-color: transparent;
+    text-align: left;
+    align-items: center;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+  .nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    margin: auto 20px auto auto;
+  }
+}
